@@ -22,7 +22,7 @@ $version = "?20140114";
 <?php echo $content; ?>
 <div class="container" style="text-align: center;">
     <hr>
-    <p>&copy; <?php echo date("Y"), ' ', CHtml::link(Util::config('site_title'), Util::config('site_url')), ' ', Yii::powered(), ' ', CHtml::link(Util::config('site_beian'), 'http://www.miitbeian.gov.cn'); ?></p>
+    <p>&copy; 技术支持 无可奉告</p>
 </div>
 </body>
 </html>

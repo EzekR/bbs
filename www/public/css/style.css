@@ -30,3 +30,11 @@ article {
 img.third-login-btn {
     width: 160px;
 }
+
+.row-shadow {
+    width: 885px;
+    height: 96px;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 5px #ffd3b6;
+}

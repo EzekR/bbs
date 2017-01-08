@@ -43,6 +43,10 @@ class HomeController extends FrontController
         
         $model = new Post('post');
 
+        if (isset($_GET['node'])) {
+            $nodeId = $_GET['node'];
+        }
+
         if (isset($_POST['Post'])) {
             
             $model->attributes = $_POST["Post"];
@@ -85,9 +89,17 @@ class HomeController extends FrontController
         
         $model->status = Post::STATUS_NORMAL;
 
+        $site['post'] = Post::model()->count();
+        // get today's post
+        $yesterday = time() - 24*3600;
+        $criteria = new CDbCriteria;
+        $criteria->compare('createTime', "> {$yesterday}");
+        $site['post_today'] = Post::model()->count($criteria);
+
         $this->render("index", array(
             "nodes" => $nodes,
             "model" => $model,
+            "site"  => $site,
         ));
     }
 
