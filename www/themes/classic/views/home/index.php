@@ -7,9 +7,9 @@ $page = $dataProvider->getPagination();
 <div class="container">
     <div class="nr-top">
     <a href="<?php echo $this->createUrl("home/index"); ?>"><span class="sps1">首页</span></a>
-    <?php if ($nodes) foreach ($nodes as $v): ?>
-    ><a href="<?php echo $this->createUrl("home/index", array("nodeId"=>$v->id)) ?>"><span class="sps2"><?php echo CHtml::encode($v->name); ?></span></a>
-    <?php endforeach; ?>            
+    <?php if ($node_name) :?>
+    ><a href="<?php echo $this->createUrl("home/index", array("nodeId"=>$node_name->id)) ?>"><span class="sps2"><?php echo CHtml::encode($node_name->name); ?></span></a>
+    <?php endif;?>            
     </div>
 </div>
 <div class="container">

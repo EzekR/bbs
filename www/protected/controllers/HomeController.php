@@ -80,6 +80,12 @@ class HomeController extends FrontController
             "status" => Node::STATUS_NORMAL,
         ));
 
+        if (isset($_GET['nodeId'])) {
+            $node_name = Node::model()->findByPk($_GET['nodeId']);
+        } else {
+            $node_name = '';
+        }
+
         $model = new Post('search');
         $model->unsetAttributes();
 
@@ -105,6 +111,7 @@ class HomeController extends FrontController
             "site"  => $site,
             "model" => $model,
             "school" => $school,
+            "node_name" => $node_name,
         ));
     }
 
