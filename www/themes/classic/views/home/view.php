@@ -26,7 +26,7 @@ $p->options = array('URI.AllowedSchemes'=>array(
         <?php $this->endWidget(); ?>
         <?php else: ?>
             <div>请先<a href="<?php $this->createUrl("home/login"); ?>">登录</a>></div>>
-
+        <?php endif;?>
     </div>
 </div>
 <div class="nr">
