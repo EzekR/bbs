@@ -94,12 +94,17 @@ class HomeController extends FrontController
         $yesterday = time() - 24*3600;
         $criteria = new CDbCriteria;
         $criteria->compare('createTime', "> {$yesterday}");
+        //$criteria->addSearchCondition("description", "primary_school");
         $site['post_today'] = Post::model()->count($criteria);
+        $criteria1 = new CDbCriteria;
+        $criteria1->addSearchCondition("description", "primary_school");
+        $school = Node::model()->findAll($criteria1);
 
         $this->render("index", array(
             "nodes" => $nodes,
-            "model" => $model,
             "site"  => $site,
+            "model" => $model,
+            "school" => $school,
         ));
     }
 
@@ -169,7 +174,7 @@ class HomeController extends FrontController
         if (empty($post) || $post->status != Post::STATUS_NORMAL) {
             throw new CHttpException(404, Yii::t('zh_CN', 'HTTP_STATUS_404'));
         }
-
+        $node_name = Node::model()->findByPk($post->nodeId);
         $comment = new Comment('post');
         if (isset($_POST['Comment'])) {
             $comment->attributes = $_POST['Comment'];
@@ -181,11 +186,19 @@ class HomeController extends FrontController
                 $this->redirect(array('home/view', 'id' => $post->id, '#'=>'go'.$comment->id));
             }
         }
+        $site['post'] = Post::model()->count();
+        // get today's post
+        $yesterday = time() - 24*3600;
+        $criteria = new CDbCriteria;
+        $criteria->compare('createTime', "> {$yesterday}");
+        $site['post_today'] = Post::model()->count($criteria);
 
         $this->pageTitle = $post->title;
         $this->render("view", array(
             "model" => $post,
             "comment" => $comment,
+            "site" => $site,
+            "node" => $node_name,
         ));
     }
 

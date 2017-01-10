@@ -49,9 +49,13 @@
                 'role' => "form",
                 ),
             )); ?>
-
+            <?php if(isset($_GET['node'])) {?>
+                <input type="hidden" name="Post[nodeId]" value="<?php echo $_GET['node']; ?>">
+                <?php } else {?>
+                <input type="hidden" name="Post[nodeId]" value="1">
+            <?php }?>
             <div>
-                    <?php echo $form->textField($model, "title", array("placeholder"=>"标题严禁使用【】等异形符号，违者删帖")); ?>
+                    <?php echo $form->textField($model, "title", array("class"=>'form-title', "placeholder"=>"标题严禁使用【】等异形符号，违者删帖")); ?>
             </div>
             <div class="wenben">
                 <?php echo $form->textArea($model, "content", array("class"=>'form-control', 'style'=>'min-height:480px')); ?>

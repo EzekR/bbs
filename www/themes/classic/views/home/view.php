@@ -6,7 +6,376 @@ $p->options = array('URI.AllowedSchemes'=>array(
     'https' => true,
 ));
 ?>
-<div class="row">
+<div class="huifu">
+    <div style="position: relative;">
+        <p><span>参与/回复主题</span> <img class="gb" src="img/叉叉.jpg" /></p>
+        <?php if (!Yii::app()->user->isGuest): ?>
+        <?php $form = $this->beginWidget('CActiveForm', array(
+            'id' => 'comment-form',
+            "htmlOptions" => array(
+            'role' => "form",
+            ),
+        )); ?>
+        <?php echo $form->hiddenField($comment, 'postId', array('value' => $model->id)); ?>
+                <?php echo $form->textArea($comment, 'content', array('class'=>'form-control', 'style'=>'height:100px;')); ?>
+                <?php echo $form->error($comment, 'content', array('class'=>'help-block')); ?>
+            <div style="padding: 10px 15px;" id="submit-btn">
+                <input type="submit" class="btn btn-primary" value="回复">
+            </div>
+        </div>
+        <?php $this->endWidget(); ?>
+        <?php endif; ?>
+    </div>
+</div>
+<div class="nr">
+<!--内容顶部-->
+<div>
+<div class="container">
+    <div class="nr-top">
+            <a href="index1.html"><span class="sps1">首页</span></a>>
+        <a href="jylt.html"><span class="sps1">
+            <?php echo $node->name; ?>
+        </span></a>>
+        <a href="jyltxqy.html"><span class="sps2"><?php echo $node->name; ?>详情页</span></a>
+    </div>
+</div>
+<div class="container">
+    <div>
+        <span class="nr-sp">上海小学生涂色</span>
+        <div class="nr-div">
+            <p><?php echo $site['post_today']; ?></p>
+            <p>今日</p>
+        </div>
+        <div class="zx"></div>
+        <div class="nr-div1">
+            <p><?php echo $site['post'];?></p>
+            <p>主题</p>
+        </div>
+        <div class="nr-div2">版主：admin</div>
+    </div>
+</div>
+<div class="container">
+    <div class="nr-div3">交流各地教育，加强学生学习</div>
+</div>
+<div class="container">
+    <div style="margin-top: 15px; margin-bottom: 10px;">
+        <a style="" href=""><img src="img/hg.jpg" /></a>
+    </div>
+</div>
+<div class="container">
+    <div style="margin-top: 15px; margin-bottom: 10px;">
+        <a style="" href=""><img src="img/hf.jpg" /></a>
+    </div>
+</div>
+<div class="container">
+    <!--主版块左-->
+    <div class="nr-bk1">
+        <div class="nr-bbk">
+            <a href=""><img src="img/gg1.jpg" /></a>
+        </div>
+        <div class="pugnub">
+            <div class="nr-bk1-2-1-1">
+                <div>
+                    <img src="img/hftb.png" />
+                    <span class="cli">回复</span>
+                </div>
+            </div>
+        </div>
+        <div class="tznr">
+            <div class="tznr-1">
+                <div><img src="img/tx1.png" />
+                    <p class="czname">
+                        <a href=""><?php echo CHtml::encode($model->user->username); ?></a>
+                    </p>
+                </div>
+            </div>
+            <div class="tznr-2">
+                <div class="tznr-2-1">
+                    <div class="tznr-2-2"><span><?php echo $model->title; ?></span>
+                        <a href="">复制链接</a>
+                    </div>
+                    <div class="tznr-2-3">
+                        <ul>
+                            <li style="margin-left: 0;">查看：<span><?php echo $model->hits; ?></span>
+                                <div class="zx2"></div>
+                            </li>
+                            <li>回复：<span><?php echo $model->reply; ?></span>
+                                <div class="zx2"></div>
+                            </li>
+                            <li>发表于 <?php echo Util::timeElapsedStr($model->createTime); ?>
+                                <div class="zx2"></div>
+                            </li>
+                            <li>只看该作者
+                                <div class="zx2"></div>
+                            </li>
+                            <li>只看大图
+                                <div class="zx2"></div>
+                            </li>
+                            <li>倒序浏览</li>
+                        </ul>
+                        <div class="louzhu">
+                            <a href="">楼主</a>
+                        </div>
+                    </div>
+                    <div class="hfnr" style="margin-top: 50px;">
+                        <?php echo $p->purify($model->content);?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php if ($model->comments): ?>
+            <?php foreach ($model->comments as $k => $v): ?>
+                <div class="tznr1">
+                    <div class="tznr-3">
+                        <div><img src="img/tx2.png" />
+                            <p class="czname cz">
+                                <a href=""><?php echo CHtml::encode($v->user->username); ?></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="gentie">
+                        <div class="tznr-2-4">
+                            <ul>
+                                <li>
+                                    <?php echo Util::timeElapsedStr($v->createTime); ?>
+                                    <div class="zx2"></div>
+                                </li>
+                                <li>
+                                    只看该作者
+                                    <div class="zx2"></div>
+                                </li>
+                                    
+                                </ul>
+                                <div class="louzhu1">
+                                    <a href="">板凳</a>
+                                </div>
+                        </div>
+                        <div class="hfnr"><?php echo $p->purify($v->content); ?></div>
+                        <div>
+                            <hr />
+                            <div><img style="vertical-align: middle;" src="img/hfb.png"/><a style="vertical-align: middle;" href="">回复</a></div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach;?>
+        <?php endif;?>
+        <?php if (!Yii::app()->user->isGuest): ?>
+        <?php $form = $this->beginWidget('CActiveForm', array(
+            'id' => 'comment-form',
+        )); ?>
+        <?php echo $form->hiddenField($comment, 'postId', array('value' => $model->id)); ?>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="light">回复</span>
+            </div>
+            <div class="panel-body">
+                <?php echo $form->textArea($comment, 'content', array('class'=>'form-control', 'style'=>'height:100px;resize:none;')); ?>
+                <?php echo $form->error($comment, 'content', array('class'=>'help-block')); ?>
+            </div>
+            <div class="panel-footer">
+                <input type="submit" class="btn btn-primary" value="回复">
+            </div>
+        </div>
+        <?php $this->endWidget(); ?>
+        <?php endif; ?>
+</div>
+<div class="nr-bk2">
+    <div class="nr-bk1-2-1-2">
+        <div class="nr-bk1-2-1-2-2">
+            <div class="nr-bk1-2-1-2-1">热门论坛</div>
+            <div style="margin-top: 15px; margin-bottom: 15px;">
+                <a href=""><img style="width: 100%; height: 100%;" src="img/tu1.jpg" /></a>
+            </div>
+            <div style="height: 30px; border-bottom: 1px dashed darkgray;">
+                <span class="ggz"><a href="">插画，漫画</a></span>
+                <span class="ggy"><a href="">人气：2759 </a><img style="position: absolute; left: -17px; top: -6px; float: right; vertical-align: top;" src="img/fire.jpg"/></span>
+            </div>
+            <div style="margin-top: 15px; margin-bottom: 15px;">
+                <a href=""><img style="width: 100%; height: 100%;" src="img/tu2.jpg" /></a>
+            </div>
+            <div style="height: 30px; border-bottom: 1px dashed darkgray;">
+                <span class="ggz"><a href="">美术吧</a></span>
+                <span class="ggy"><a href="">人气：2759 </a><img style="position: absolute; left: -17px; top: -6px; float: right; vertical-align: top;" src="img/fire.jpg"/></span>
+
+            </div>
+            <div style="margin-top: 15px; margin-bottom: 15px;">
+                <a href=""><img style="width: 100%; height: 100%;" src="img/tu3.jpg" /></a>
+            </div>
+            <div style="height: 30px;">
+    <span class="ggz"><a href="">多肉植物吧</a></span>
+    <span class="ggy "><a href=" ">人气：2759 </a><img style="position: absolute; left: -17px; top: -6px; float: right; vertical-align: top; " src="img/fire.jpg"/></span>
+        </div>
+</div>
+</div>
+<!---->
+                    <div class="nr-bk1-2-1-3">
+        <div class="nr-bk1-2-1-2-2">
+            <div class="nr-bk1-2-1-2-1">我的足迹</div>
+            <div style="margin-top: 15px; margin-bottom: 15px;">
+                <a href=""><img style="width: 100%; height: 100%;" src="img/cyse.png" /></a>
+            </div>
+            <div style="height: 30px; border-bottom: 1px dashed darkgray;">
+                <span class="ggz"><a href="">插画，漫画</a></span>
+                <span class="ggy"><a href="">人气：2759 </a><img style="position: absolute; left: -17px; top: -6px; float: right; vertical-align: top;" src="img/fire.jpg"/></span>
+            </div>
+            <div style="margin-top: 15px; margin-bottom: 15px;">
+                <a href=""><img style="width: 100%; height: 100%;" src="img/cyse2.png" /></a>
+            </div>
+            <div style="height: 30px;">
+                <span class="ggz"><a href="">美术吧</a></span>
+                <span class="ggy"><a href="">人气：2759 </a><img style="position: absolute; left: -17px; top: -6px; float: right; vertical-align: top;" src="img/fire.jpg"/></span>
+
+            </div>
+
+</div>
+</div>
+<!---->
+    <div class="nr-bk1-2-1-3">
+        <div class="nr-bk1-2-1-2-2">
+            <div class="nr-bk1-2-1-2-1">猜你喜欢</div>
+            <div style="margin-top: 15px; margin-bottom: 15px;">
+                <a href=""><img style="width: 100%; height: 100%;" src="img/cyse3.png" /></a>
+            </div>
+            <div style="height: 30px; border-bottom: 1px dashed darkgray;">
+                <span class="ggz"><a href="">插画，漫画</a></span>
+                <span class="ggy"><a href="">人气：2759 </a><img style="position: absolute; left: -17px; top: -6px; float: right; vertical-align: top;" src="img/fire.jpg"/></span>
+            </div>
+            <div style="margin-top: 15px; margin-bottom: 15px;">
+                <a href=""><img style="width: 100%; height: 100%;" src="img/cyse4.png" /></a>
+            </div>
+            <div style="height: 30px;">
+                <span class="ggz"><a href="">美术吧</a></span>
+                <span class="ggy"><a href="">人气：2759 </a><img style="position: absolute; left: -17px; top: -6px; float: right; vertical-align: top;" src="img/fire.jpg"/></span>
+
+            </div>
+</div>
+</div>
+</div>
+</div>
+        <div class="tel-around ">
+            <div class="telback "></div>
+
+            <div class="nice-tel ">
+                <a href="#no "><img src="img/template/nicetel.jpg " alt="tel " class="telpic "></a>
+                <span>欢迎加入30元/月，加亮50元/月</span>
+                <a href="#no ">查看更多 +</a>
+            </div>
+        </div>
+
+        <div class="teltags ">
+            <div class="teltag color1 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color2 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color3 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color4 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color5 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color6 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color7 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color5 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color1 nomargin ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+
+            <div class="teltag color6 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color5 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color7 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color1 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color6 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color3 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color2 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color1 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color6 nomargin ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+
+            <div class="teltag color4 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color1 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color5 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color2 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color5 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color6 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color1 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color4 ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+            <div class="teltag color2 nomargin ">
+                <p>虚位以待</p>
+                <p>021-51083516</p>
+            </div>
+        </div>
+        <?php $this->widget("SideOutlinkWidget");?>
+<div class="row" style="display: none;">
     <div class="col-md-9">
         <!-- view -->
         <div class="panel panel-default">
@@ -173,4 +542,15 @@ $(function(){
 <?php endif; ?>
 <script type="text/javascript">
 $.ajax(<?php echo json_encode($this->createUrl("ajax/postView", array("id"=>$model->id))); ?>);
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('.cli').click(function() {
+        $('.huifu').css('display','block'),
+        $('.ke-container').removeAttr("style")
+    })
+    $('.gb').click(function() {
+        $('.huifu').css('display','none')
+    })
+})
 </script>

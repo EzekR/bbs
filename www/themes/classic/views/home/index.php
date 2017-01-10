@@ -241,7 +241,6 @@ $page = $dataProvider->getPagination();
     </div>
 </div>
 <?php $this->widget("SideOutlinkWidget"); ?>
-<?php print_r($_GET);?>
 <script type="text/javascript">
     function addClass(x){
         x.className = "nr-bk1-2 row-shadow";

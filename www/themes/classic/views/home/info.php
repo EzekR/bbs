@@ -43,6 +43,10 @@
                         <?php echo $form->error($model, 'qq', array('class' => 'help-block')); ?>
                     </div>
                 </div>
+                <div class="form-group" id="img">
+                    <?php echo $form->labelEx($model,'images'); ?>
+                    <input type="file" name="imageFile"/>
+                </div>
                 <div class="form-group">
                     <?php echo $form->label($model, 'location', array('class' => 'col-sm-2 control-label')); ?>
                     <div class="col-sm-3">
