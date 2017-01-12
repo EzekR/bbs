@@ -69,9 +69,16 @@ class Node extends Model
             array('name', 'length', 'max'=>64),
             array('sort, createTime', 'length', 'max'=>10),
             array('description', 'length', 'max'=>256),
+            // array('img', 
+            //     'file', 
+            //     'allowEmpty'=>true, 
+            //     'types'=>'jpg, png, gif', 
+            //     'maxSize'=>1024*1024*10,
+            //     'tooLarge'=>'The file was larger than 1MB. Please upload a smaller file.'
+            //     )
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, name, status, sort, createTime, description', 'safe', 'on'=>'search'),
+            array('id, name, status, sort, createTime, description, img', 'safe', 'on'=>'search'),
         );
     }
 
@@ -96,6 +103,7 @@ class Node extends Model
             'sort' => '排序',
             'createTime' => '创建日期',
             'description' => '描述',
+            'img' => '论坛图标',
         );
     }
 
@@ -123,6 +131,7 @@ class Node extends Model
         $criteria->compare('sort',$this->sort,true);
         $criteria->compare('createTime',$this->createTime,true);
         $criteria->compare('description',$this->description,true);
+        $criteria->compare('img', $this->img, true);
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,

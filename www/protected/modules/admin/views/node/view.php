@@ -1,4 +1,5 @@
 <div class="row">
+<?php print_r($model); ?>
     <div class="col-md-12">
         <div class="row">
             <ol class="breadcrumb">
@@ -35,6 +36,10 @@
             <tr>
                 <th><?php echo $model->getAttributeLabel("description"); ?></th>
                 <td><?php echo CHtml::encode($model->description); ?></td>
+            </tr>
+            <tr>
+                <th><?php echo $model->getAttributeLabel("img"); ?></th>
+                <td><img src="upload_img/<?php echo CHtml::encode($model->img); ?>"></td>
             </tr>
             </table>
         </div>

@@ -4,6 +4,7 @@ $data = $dataProvider->getData();
 $page = $dataProvider->getPagination();
 ?>
 <div class="row">
+<?php print_r($model); ?> 
     <div class="col-md-12">
         <div class="row">
             <ol class="breadcrumb">

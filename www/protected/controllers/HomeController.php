@@ -80,8 +80,8 @@ class HomeController extends FrontController
             "status" => Node::STATUS_NORMAL,
         ));
 
-        if (isset($_GET['nodeId'])) {
-            $node_name = Node::model()->findByPk($_GET['nodeId']);
+        if (isset($_GET['Post'])) {
+            $node_name = Node::model()->findByPk($_GET['Post']['nodeId']);
         } else {
             $node_name = '';
         }
@@ -92,6 +92,10 @@ class HomeController extends FrontController
         if (isset($_GET['Post'])) {
             $model->attributes = $_GET['Post'];
         }
+
+        // if (isset($_GET['nodeId'])) {
+        //     $model->attributes['nodeId'] = $_GET['nodeId'];
+        // }
         
         $model->status = Post::STATUS_NORMAL;
 
@@ -112,6 +116,7 @@ class HomeController extends FrontController
             "model" => $model,
             "school" => $school,
             "node_name" => $node_name,
+            //"attributes" => $attributes,
         ));
     }
 

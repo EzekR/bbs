@@ -4,6 +4,7 @@
     'htmlOptions' => array(
         'class' => 'form-horizontal',
         'role' => 'form',
+        'enctype' => 'multipart/form-data',
     ),
 )); ?>
 
@@ -36,6 +37,14 @@
         <div class="col-sm-3">
         <?php echo $form->textArea($model,'description',array('class'=>'form-control','maxlength'=>256, 'style'=>'width:400px;height:60px;resize:none;')); ?>
         <?php echo $form->error($model,'description', array('class'=>'help-inline')); ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'img', array('class'=>'col-sm-2 control-label')); ?>  
+        <div class="col-sm-3">
+            <input class="form-control" name="Node[img]" id="Node_img" type="file">
+            <?php echo $form->error($model,'img'); ?> 
         </div>
     </div>
 

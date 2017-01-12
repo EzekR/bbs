@@ -1,4 +1,7 @@
 <div class="row">
+<?php print_r($model); ?>
+<?php print_r($dir); ?>
+<?php print_r($image); ?>
     <div class="col-md-12">
         <div class="row">
             <ol class="breadcrumb">

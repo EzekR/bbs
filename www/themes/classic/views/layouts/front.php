@@ -4,10 +4,19 @@
         <div class="top1">
             <ul>
                 <li>欢迎来到中国新人网！</li>
+                <?php if (yii::app()->user->isGuest) {?>
                 <li>
                     <a style="text-decoration: none; color: orange;" href="<?php echo Yii::app()->createUrl("home/login"); ?>">请登录</a>
                 </li>
                 <li><a class="a1" href="<?php echo Yii::app()->createUrl("home/register"); ?>">注册</a></li>
+                <?php } else {?>
+                <li>
+                    <a href="<?php echo yii::app()->createUrl("home/user");?>" style="text-align: none; color: orange; "><?php echo yii::app()->user->name; ?></a>
+                </li>
+                <li>
+                    <a href="<?php echo yii::app()->createUrl("home/logout"); ?>">退出</a>
+                </li>
+                <?php }?>
             <li class="lii">
                         <a class="a1" href=""><img class="shouji" src="img/nr/shouji.jpg"/>&nbsp;&nbsp;手机客户端</a>
                     </li>
@@ -61,9 +70,9 @@
     <div class="container">
         <ul>
             <a href="#no"><li class="li2">全部商品分类</li></a>
-            <a href="index1.html"><li class="li3">首页</li></a>
-            <a href="csjy.html"><li class="li4">教育论坛</li></a>
-            <a href="yxcg.html"><li class="li3">学校</li></a>
+            <a href="#"><li class="li3">首页</li></a>
+            <a href="<?php echo yii::app()->createUrl("home/index");?>"><li class="li4">教育论坛</li></a>
+            <a href="http://139.196.42.39/shuimin-education"><li class="li3">学校</li></a>
             <a href="px.html"><li class="li3">培训</li></a>
         </ul>
     </div>

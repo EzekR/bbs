@@ -60,6 +60,9 @@ class NodeController extends BackendController
         if(isset($_POST['Node']))
         {
             $model->attributes=$_POST['Node'];
+            $image = CUploadedFile::getInstanceByName('Node[img]');
+            $image->saveAs('upload_img/'.time().$image->name);
+            $model->img = time().$image->name;
             if($model->save())
                 $this->redirect(array('view','id'=>$model->id));
         }
@@ -81,15 +84,25 @@ class NodeController extends BackendController
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
+
         if(isset($_POST['Node']))
         {
             $model->attributes=$_POST['Node'];
+            $image = CUploadedFile::getInstanceByName('Node[img]');
+            $image->saveAs('upload_img/'.time().$image->name);
+            $model->img = time().$image->name;
             if($model->save())
                 $this->redirect(array('view','id'=>$model->id));
+        } else {
+            $image = '1';
+            $dir = '2';
+            $run_bug = 'ssss';
         }
 
         $this->render('update',array(
             'model'=>$model,
+            'image'=>$image,
+            'dir'=>$dir,
         ));
     }
 
