@@ -341,6 +341,9 @@ class HomeController extends FrontController
 
         if (isset($_POST['User'])) {
             $model->attributes = $_POST['User'];
+            $image = CUploadedFile::getInstanceByName('User[image]');
+            $image->saveAs('avatar_img/'.time().$image->name);
+            $model->avatar = time().$image->name;
             if ($model->save()) {
                 Yii::app()->user->setFlash(":notice", Yii::t('zh_CN', 'OPTS_SUCCESS'));
                 $this->redirect($this->createUrl('home/info'));

@@ -13,6 +13,7 @@
                     'htmlOptions' => array(
                         'class' => 'form-horizontal',
                         'role' => 'form',
+                        'enctype' => 'multipart/form-data',
                     ),
                 )); ?>
 
@@ -43,9 +44,12 @@
                         <?php echo $form->error($model, 'qq', array('class' => 'help-block')); ?>
                     </div>
                 </div>
-                <div class="form-group" id="img">
-                    <?php echo $form->labelEx($model,'images'); ?>
-                    <input type="file" name="imageFile"/>
+                <div class="form-group">
+                        <?php echo $form->labelEx($model,'avatar', array('class'=>'col-sm-2 control-label')); ?>  
+                        <div class="col-sm-3">
+                            <input class="form-control" name="User[image]" id="User_image" type="file">
+                            <?php echo $form->error($model,'image'); ?> 
+                        </div>
                 </div>
                 <div class="form-group">
                     <?php echo $form->label($model, 'location', array('class' => 'col-sm-2 control-label')); ?>

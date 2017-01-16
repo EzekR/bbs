@@ -31,49 +31,49 @@ $page = $dataProvider->getPagination();
                             <ul>
                                 <li class="nr-li1">地区：</li>
                                 <li class="nr-li2">
-                                    <a href="">全部</a>
+                                    <a href="#">全部</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">黄浦区</a>
+                                    <a href="#">黄浦区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">徐汇区</a>
+                                    <a href="#">徐汇区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">长宁区</a>
+                                    <a href="#">长宁区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">静安区</a>
+                                    <a href="#">静安区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">普陀区</a>
+                                    <a href="#">普陀区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">闸北区</a>
+                                    <a href="#">闸北区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">卢湾区</a>
+                                    <a href="#">卢湾区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">虹口区</a>
+                                    <a href="#">虹口区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">宝山区</a>
+                                    <a href="#">宝山区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">闵行区</a>
+                                    <a href="#">闵行区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">嘉定区</a>
+                                    <a href="#">嘉定区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">松江区</a>
+                                    <a href="#">松江区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">奉贤区</a>
+                                    <a href="#">奉贤区</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">青浦区</a>
+                                    <a href="#">青浦区</a>
                                 </li>
                             </ul>
                         </div>
@@ -101,256 +101,29 @@ $page = $dataProvider->getPagination();
                             </span>
                         </div>
                         <div class="lb">
+                        <?php if ($data) {?>
+                            <?php foreach ($data as $v) {?>
                             <div class="lb1">
-                                <img style="float: left;" src="img/1.png" />
-                                <div class="lb1-1">
-                                    <p>
-                                        <a href="jylt.html">如何证明三角形的三条高交于一点</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/srm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/rt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
+                                <div class="lb11">
+                                    <img src="avatar_img/<?php echo CHtml::encode($v->user->avatar); ?>" />
                                 </div>
-                            </div>
-                            <div class="lb2">
-                                <img style="float: left;" src="img/2.png" />
                                 <div class="lb1-2">
                                     <p>
-                                        <a href="jylt.html">打数学试卷你用什么最快，最方便?</a>
+                                        <a href="<?php echo $this->createUrl("home/view", array("id"=>$v->id));?>"><?php echo CHtml::encode($v->title); ?></a>
                                     </p>
                                     <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
+                                        <span><img class="img11" src="img/bm.png"/></span><span class="span1"><?php echo CHtml::encode($v->user->username); ?></span>
+                                        <span class="span2"><img class="img22" src="img/bt.png"/></span><span class="span3"><?php echo Util::tformat($v->createTime);?></span>
                                     </p>
-                                    <p>浏览人数：3502人看过</p>
+                                    <p>浏览人数：<?php echo CHtml::encode($v->hits); ?>人看过</p>
                                 </div>
                             </div>
+                        <?php }?>
+                    <?php }?>
+
                         </div>
                         <div style="clear: both;"></div>
                         <!---->
-                        <div class="lb">
-                            <div class="lb1">
-                                <img style="float: left;" src="img/3.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">打数学试卷你用什么最快，最方便?</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                            <div class="lb2">
-                                <img style="float: left;" src="img/4.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">教学互动中提问是重要的一环</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="clear: both;"></div>
-                        <!---->
-                        <div class="lb">
-                            <div class="lb1">
-                                <img style="float: left;" src="img/5.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">全国最大高中数学老师分享 13893616</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                            <div class="lb2">
-                                <img style="float: left;" src="img/6.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">微积开概念————由类星体研究引发的概念</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="clear: both;"></div>
-                        <!---->
-                        <div class="lb">
-                            <div class="lb1">
-                                <img style="float: left;" src="img/7.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">已知kx+cosx-sinx-1≤0对∀x∈[0,π]恒成立，</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                            <div class="lb2">
-                                <img style="float: left;" src="img/8.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">关于工序框图的题目，竟然有两种答案</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="clear: both;"></div>
-                        <!---->
-                        <div class="lb">
-                            <div class="lb1">
-                                <img style="float: left;" src="img/9.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">有关AgCl与KI反应的反应？ 求教</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                            <div class="lb2">
-                                <img style="float: left;" src="img/10.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">大家画平角时，上面的小弧线有没有箭头</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="clear: both;"></div>
-                        <!---->
-                        <div class="lb">
-                            <div class="lb1">
-                                <img style="float: left;" src="img/11.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">2NO2 可逆N2O4平衡体系中，再充入0.5mol</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                            <div class="lb2">
-                                <img style="float: left;" src="img/12.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">比赛组合推理题</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="clear: both;"></div>
-                        <!---->
-                        <div class="lb">
-                            <div class="lb1">
-                                <img style="float: left;" src="img/13.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">苯环为什么不能看做是官能团</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                            <div class="lb2">
-                                <img style="float: left;" src="img/14.png" />
-                                <div class="lb1-2">
-                                    <p>
-                                        <a href="jylt.html">“骨炭银”催化氨氧化实验</a>
-                                    </p>
-                                    <p class="1b-p">
-                                        <span><img src="img/bm.png"/></span><span class="span1">一米阳光</span>
-                                        <span class="span2"><img src="img/bt.png"/></span><span class="span3">2016-10-27</span>
-                                    </p>
-                                    <p>浏览人数：3502人看过</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="clear: both;"></div>
-                        <!---->
-                        <div class="pugnub">
-                            <ul>
-                                <li class="pugnub-1-1">
-                                    <a href="">1</a>
-                                </li>
-                                <li class="pugnub-1">
-                                    <a href="">2</a>
-                                </li>
-                                <li class="pugnub-1">
-                                    <a href="">3</a>
-                                </li>
-                                <li class="pugnub-1">
-                                    <a href="">4</a>
-                                </li>
-                                <li class="pugnub-1">
-                                    <a href="">5</a>
-                                </li>
-                                <li class="pugnub-1">
-                                    <a href="">6</a>
-                                </li>
-                                <li class="pugnub-1">
-                                    <a href="">7</a>
-                                </li>
-                                <li class="pugnub-1">
-                                    <a href="">8</a>
-                                </li>
-                                <li class="pugnub-1">
-                                    <a href="">9</a>
-                                </li>
-                                <li class="pugnub-1">
-                                    <a href="">10</a>
-                                </li>
-                                <li class="pugnub-2">
-                                    <a href="">..26</a>
-                                </li>
-                                <li class="pugnub-3"><input type="text" name="" id="" value="1" />/26页</li>
-                                <li class="pugnub-3">
-                                    <a href="">下一页</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>

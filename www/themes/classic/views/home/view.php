@@ -33,9 +33,9 @@ $p->options = array('URI.AllowedSchemes'=>array(
 <!--内容顶部-->
 <div>
 <div class="container">
-    <div class="nr-top">
-            <a href="index1.html"><span class="sps1">首页</span></a>>
-        <a href="jylt.html"><span class="sps1">
+    <div style="margin-top: 20px; margin-bottom: 20px">
+            <a href="<?php echo Yii::app()->createUrl("home/index"); ?>"><span class="sps1">首页</span></a>>
+        <a href="<?php echo Yii::app()->createUrl("home/index", array("Post[nodeId]"=>$node->id));?>"><span class="sps1">
             <?php echo $node->name; ?>
         </span></a>>
         <a href="jyltxqy.html"><span class="sps2"><?php echo $node->name; ?>详情页</span></a>
