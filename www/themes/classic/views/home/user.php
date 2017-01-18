@@ -1,5 +1,5 @@
 <?php 
-$dataProvider = $model->search();
+$dataProvider = $model->search("hits desc");
 $data = $dataProvider->getData();
 $page = $dataProvider->getPagination(); ?>
 <div class="row">
