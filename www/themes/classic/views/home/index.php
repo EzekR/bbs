@@ -1,8 +1,23 @@
 <?php 
-$dataProvider = $model->search();
+if (isset($_GET['sort_order'])) {
+    $sort_order = $_GET['sort_order'];
+} else {
+    $sort_order = 'hits desc, createTime desc';
+}
+$dataProvider = $model->search($sort_order);
 $data = $dataProvider->getData();
 $page = $dataProvider->getPagination();
+$sort = $dataProvider->getSort();
 ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#test').click(function(){
+            $.get("http://localhost/birdbbs/www/index.php?r=home/index&Post[nodeId]=2", function(data,status){
+                $(document).find('html').html(data);
+            });
+        });
+    })
+</script>
 <?php if (!isset($_GET['Post'])) {?>
             <div>
                 <div class="container">
@@ -11,19 +26,19 @@ $page = $dataProvider->getPagination();
                             <ul>
                                 <li class="nr-li1">分类：</li>
                                 <li class="nr-li2">
-                                    <a href="">全部</a>
+                                    <a href="#" id="all">全部</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">幼儿园</a>
+                                    <a href="#" id="kg">幼儿园</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">小学</a>
+                                    <a href="#" id="ps">小学</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">初中</a>
+                                    <a href="#" id="ss">初中</a>
                                 </li>
                                 <li class="nr-li3">
-                                    <a href="">高中</a>
+                                    <a href="#" id="hs">高中</a>
                                 </li>
                             </ul>
                         </div>
@@ -81,21 +96,21 @@ $page = $dataProvider->getPagination();
                     <div class="nr-bottom">
                         <div class="div1">
                             <ul style="display: inline-block;">
-                                <a href="">
+                                <a href="#">
                                     <li class="nr-bottom-li1" style="color: #ff6601;">全部 <img  style="margin-top: -2px; vertical-align: middle;" src="img/rjt.png" /></li>
                                 </a>
-                                <a href="">
+                                <a href="<?php echo Yii::app()->createUrl("home/index", array("sort_order"=>"createTime desc"));?>">
                                     <li class="nr-bottom-li2">最新 <img style="margin-top: -2px; vertical-align: middle;" src="img/bjt.png" /></li>
                                 </a>
-                                <a href="">
+                                <a href="<?php echo Yii::app()->createUrl("home/index", array("sort_order"=>"hits desc"));?>">
                                     <li class="nr-bottom-li2">热门 <img style="margin-top: -2px; vertical-align: middle;" src="img/bjt.png" /></li>
                                 </a>
-                                <a href="">
+                                <a href="<?php echo Yii::app()->createUrl("home/index", array("sort_order"=>"sort desc"));?>">
                                     <li class="nr-bottom-li2">精华 <img style="margin-top: -2px; vertical-align: middle;" src="img/bjt.png" /></li>
                                 </a>
                             </ul>
                             <span style="position: absolute; right: 10px; top: 5px;">
-                            <span style="vertical-align: middle;">1/2</span>
+                            <span style="vertical-align: middle;" id="test11">1/2</span>
                             <img style="cursor: pointer; vertical-align:middle;" src="img/zjt.jpg" />
                             <img style="cursor: pointer; vertical-align: middle;" src="img/yjt.jpg" />
                             </span>
@@ -153,7 +168,7 @@ $page = $dataProvider->getPagination();
         <div class="nr-div2">版主：admin</div>
     </div>
 </div>
-<div class="container">
+<div class="container" id="hot">
     <div class="nr-div3">交流各地教育，加强学生学习</div>
 </div>
 <div class="container">
@@ -377,3 +392,24 @@ $page = $dataProvider->getPagination();
         x.className = "nr-bk1-2";
     }
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#ps").click(function(){
+            $(".lb").load("http://localhost/birdbbs/www/index.php?r=home/index&school=primary_school .lb1");
+        });
+        $("#kg").click(function(){
+            $(".lb").load("http://localhost/birdbbs/www/index.php?r=home/index&school=kinder_garden .lb1");
+        });
+        $("#ss").click(function(){
+            $(".lb").load("http://localhost/birdbbs/www/index.php?r=home/index&school=senior_school .lb1");
+        });
+        $("#hs").click(function(){
+            $(".lb").load("http://localhost/birdbbs/www/index.php?r=home/index&school=high_school .lb1");
+        });
+        $("#all").click(function(){
+            $(".lb").load("http://localhost/birdbbs/www/index.php?r=home/index .lb1");
+        });
+
+    });
+</script>
+

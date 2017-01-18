@@ -17,7 +17,7 @@ $version = "?20140114";
     <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/fty.css" />
     <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/jyltxqy.css" />
     <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/csjy.css" />
-    <script type="text/javascript" src="<?php echo $staticUrl; ?>/public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo $staticUrl; ?>/public/js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="<?php echo $staticUrl; ?>/public/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo $staticUrl; ?>/public/js/luntan.js"></script>
     <script type="text/javascript">

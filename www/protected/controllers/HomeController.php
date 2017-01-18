@@ -86,6 +86,8 @@ class HomeController extends FrontController
             $node_name = '';
         }
 
+
+
         $model = new Post('search');
         $model->unsetAttributes();
 
@@ -106,15 +108,25 @@ class HomeController extends FrontController
         $criteria->compare('createTime', "> {$yesterday}");
         //$criteria->addSearchCondition("description", "primary_school");
         $site['post_today'] = Post::model()->count($criteria);
-        $criteria1 = new CDbCriteria;
-        $criteria1->addSearchCondition("description", "primary_school");
-        $school = Node::model()->findAll($criteria1);
+        if (isset($_GET['school'])) {
+            $school = $_GET['school'];
+            $criteria1 = new CDbCriteria;
+            $criteria1->addSearchCondition("description", $school);
+            $result = Node::model()->findAll($criteria1);
+            if ($result) {
+                $model->nodeId = $result[0]->id;
+            } else {
+                $model->nodeId = 0;
+            }
+            
+        }
+
 
         $this->render("index", array(
             "nodes" => $nodes,
             "site"  => $site,
             "model" => $model,
-            "school" => $school,
+            //"result" => $result,
             "node_name" => $node_name,
             //"attributes" => $attributes,
         ));
@@ -390,5 +402,23 @@ class HomeController extends FrontController
         $this->render("password", array(
             'model' => $model,
         ));
+    }
+
+    //hot posts for iframe on the index
+    public function actionHot()
+    {
+        $hours24ago = time() - 100*3600;
+
+        $criteria = new CDbCriteria;
+        $criteria->select = "id, title, hits";
+        $criteria->compare('status', Post::STATUS_NORMAL);
+        $criteria->compare('createTime', "> {$hours24ago}");
+        $criteria->order = "hits desc";
+        $criteria->limit = 10;
+
+        $post = Post::model()->findAll($criteria);
+        $this->render("hot", array(
+            'post' => $post,
+            ));
     }
 }

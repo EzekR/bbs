@@ -253,8 +253,8 @@ $p->options = array('URI.AllowedSchemes'=>array(
 </div>
 </div>
 </div>
-</div>
-        <div class="tel-around ">
+
+    <div class="tel-around ">
             <div class="telback "></div>
 
             <div class="nice-tel ">
@@ -375,6 +375,7 @@ $p->options = array('URI.AllowedSchemes'=>array(
                 <p>虚位以待</p>
                 <p>021-51083516</p>
             </div>
+        </div>
         </div>
         <?php $this->widget("SideOutlinkWidget");?>
 <div class="row" style="display: none;">

@@ -112,7 +112,7 @@ class Post extends Model
      * @return CActiveDataProvider the data provider that can return the models
      * based on the search/filter conditions.
      */
-    public function search()
+    public function search($sort_order)
     {
         $criteria=new CDbCriteria;
         $criteria->select = "id, title, userId, nodeId, reply, sort, hits, lastUpdateUserId, updateTime, createTime, status";
@@ -123,7 +123,39 @@ class Post extends Model
         
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
-            'sort' => array('defaultOrder' => 'sort desc, id desc'),
+            'sort' => array('defaultOrder' => $sort_order),
+            'pagination' => array('pageSize' => 20,)
+        ));
+    }
+
+    public function searchNew()
+    {
+        $criteria=new CDbCriteria;
+        $criteria->select = "id, title, userId, nodeId, reply, sort, hits, lastUpdateUserId, updateTime, createTime, status";
+        $criteria->compare('id',$this->id);
+        $criteria->compare('userId',$this->userId);
+        $criteria->compare('nodeId',$this->nodeId);
+        $criteria->compare('status', $this->status);
+        
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+            'sort' => array('defaultOrder' => 'sort desc, createTime desc'),
+            'pagination' => array('pageSize' => 20,)
+        ));
+    }
+
+    public function searchHot()
+    {
+        $criteria=new CDbCriteria;
+        $criteria->select = "id, title, userId, nodeId, reply, sort, hits, lastUpdateUserId, updateTime, createTime, status";
+        $criteria->compare('id',$this->id);
+        $criteria->compare('userId',$this->userId);
+        $criteria->compare('nodeId',$this->nodeId);
+        $criteria->compare('status', $this->status);
+        
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+            'sort' => array('defaultOrder' => 'sort desc, hits desc'),
             'pagination' => array('pageSize' => 20,)
         ));
     }
