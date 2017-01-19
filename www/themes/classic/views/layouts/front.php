@@ -1,7 +1,7 @@
 <?php $this->beginContent('//layouts/layout'); ?>
 <?php 
 $route = $_SERVER['QUERY_STRING'];
-if ($route == 'r=home/hot') {?>
+if ($route == 'r=home/hot' || $route == 'r=home/bbs') {?>
 <div style="display: none">
 <?php } else {?>
 <div style = "display: block">

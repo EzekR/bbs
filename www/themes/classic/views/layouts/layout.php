@@ -17,6 +17,7 @@ $version = "?20140114";
     <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/fty.css" />
     <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/jyltxqy.css" />
     <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/csjy.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $staticUrl; ?>/public/css/index.css" />
     <script type="text/javascript" src="<?php echo $staticUrl; ?>/public/js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="<?php echo $staticUrl; ?>/public/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo $staticUrl; ?>/public/js/luntan.js"></script>
@@ -41,10 +42,15 @@ $version = "?20140114";
 <body>
 <div class="min">
 <?php echo $content; ?>
+<?php $route = $_SERVER['QUERY_STRING'];
+    if ($route == 'r=home/hot' || $route == 'r=home/bbs') 
+ { ?><div style="display: none;"></div>
+<?php } else {?>
 <div class="container" style="text-align: center;">
     <hr>
     <p>&copy; 技术支持，无可奉告</p>
 </div>
+<?php }?>
 <!-- <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

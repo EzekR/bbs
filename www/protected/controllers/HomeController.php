@@ -423,4 +423,26 @@ class HomeController extends FrontController
             'post' => $post,
             ));
     }
+
+    public function actionBbs()
+    {
+        $nodes = Node::model()->findAllByAttributes(array(
+            "status" => Node::STATUS_NORMAL,
+        ));
+        $node_posts = array();
+        foreach ($nodes as $node) {
+            $nodeId = $node->id;
+            $node_posts[]['topic'] = Post::model()->count("nodeId = :nodeId", array(":nodeId"=>$nodeId));
+            $reply[] = Yii::app()->db->createCommand()
+                    ->select('reply')
+                    ->from('bird_post')
+                    ->where('id = :id', array(':id'=>$nodeId))
+                    ->queryRow();          
+        }
+        $this->render("bbs", array(
+            'nodes' => $nodes,
+            'node_posts' => $node_posts,
+            'reply' => $reply,
+            ));
+    }
 }

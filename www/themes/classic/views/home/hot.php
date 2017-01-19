@@ -8,7 +8,7 @@
 			<?php if ($k <= 2) {?>
 				<img src="img/fang-chengse.png" />
 			<?php } else { ?>
-				<img src="img/fang-lvse">
+				<img src="img/fang-lvse.png">
 			<?php }?>
 				<span class="text-shu"><?php echo $k+1;?></span>
 			</th>

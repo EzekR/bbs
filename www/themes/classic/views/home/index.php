@@ -9,7 +9,6 @@ $data = $dataProvider->getData();
 $page = $dataProvider->getPagination();
 $sort = $dataProvider->getSort();
 ?>
-<?php print_r($test_array);?>
 <script type="text/javascript">
     $(document).ready(function(){
         $('#test').click(function(){
