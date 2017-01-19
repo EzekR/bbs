@@ -1,0 +1,610 @@
+body{
+    width:100%;
+    font-family: "Microsoft YaHei", sans-serif;
+    font-size: 12px;
+    background-color: #fff;
+    margin:0;
+    padding: 0;
+}
+
+html, body, div, form, ul, ol, li, span, p, dl, dt, dd, img,a {
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+    height:0;
+}
+
+/*顶部导航*/
+.nav{
+    height:30px;
+    width:1200px;
+    margin:0 auto;
+    line-height: 30px;
+    color:#666;
+}
+/*右侧导航链接*/
+.nav a, .nav a:link{
+    text-decoration: none;
+    color: #666;
+}
+
+.nav a:hover{
+    color: #cc0000;
+}
+
+.nav ul li{
+    float: right;
+    list-style-type: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+.nav-right{
+    line-height: 1px;
+    font-size: 10px;
+    position: absolute;
+    right:0;
+    top:13px;
+}
+
+#ad-top img{
+    width:100%;
+}
+
+.triangle-icon{
+    display: block;
+    width:0px;
+    height:0px;
+    border-width: 4px 4px 0;
+    border-color: #666 transparent;
+    border-style: solid;
+    position: absolute;
+    right:6px;
+    bottom:12px;
+}
+/*左侧导航链接*/
+#login{
+    color: #aece56;
+    margin-right: 10px;
+}
+
+.glyphicon-phone{
+    margin-left: 10px;
+}
+
+/*logo、搜索*/
+/*logo及更换城市*/
+#logo-search{
+    width:1200px;
+    height:112px;
+    margin:0 auto;
+    border:1px solid #fff;
+    position: relative;
+}
+
+#logo{
+    margin-top:30px;
+    height:62px;
+    width:260px;
+    border-right: 1px solid #ccc;
+}
+
+#change-city{
+    position: absolute;
+    top:35px;
+    left:270px;
+}
+
+#city-name{
+    font-size: 18px;
+    color: #d50000;
+    font-weight: bold;
+}
+
+#change-city a,#change-city a:link{
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+#change-city a:hover{
+    color: #cc0000;
+}
+
+#change-city a p{
+    float: left;
+}
+
+#changearrow{
+    display:block;
+    width:11px;
+    height:20px;
+    background-image: url("../img/changearrow.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 9px;
+    float: left;
+    margin-left: 3px;
+}
+
+/*顶部搜索*/
+#top-search {
+    position: absolute;
+    top: 35px;
+    left:460px;
+}
+
+#searchdiv{
+    background-color: #d50000;
+    width:530px;
+    height:35px;
+    padding:2px;
+    line-height: 35px;
+    padding-left: 5px;
+}
+
+#searchdiv input{
+    height:31px;
+    width:420px;
+    text-indent: 10px;
+    font-size: 14px;
+    border:0;
+    padding:0;
+}
+
+#searchdiv button{
+    width: 98px;
+    border:1px solid transparent;
+    background-color: #d50000;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#searchbelow{
+    margin-top: 6px;
+    margin-left: 5px;
+}
+
+#searchbelow span{
+    color: #999;
+}
+
+#searchbelow a{
+    color: #666;
+    text-decoration: none;
+}
+
+#searchbelow a:hover{
+    color: #cc0000;
+}
+
+#service{
+    position: absolute;
+    right:0;
+    top:20px;
+}
+
+/*商品标签*/
+#categorybg{
+    background-color: #d50000;
+    height: 41px;
+    width: 100%;
+}
+
+#houseinformation{
+    background-color: #b10000;
+}
+
+#categoryhead{
+    width:1200px;
+    margin: 0 auto;
+    line-height: 41px;
+    font-size: 15px;
+    color: #fff;
+    position: relative;
+}
+
+#categoryhead a,#categoryhead a:link{
+    color: #fff;
+    text-decoration: none;
+}
+
+#categorylist{
+    width: 225px;
+    display: inline-block;
+    background-color: #b10000;
+}
+
+#spfenl{
+    margin-left: 50px;
+}
+
+#categorytags{
+    display: inline-block;
+    list-style-type: none;
+}
+
+#categorytags li{
+    display: inline-block;
+    padding:0 20px;
+}
+
+#categorytags li img{
+    height: 36px;
+}
+
+#categorytags a{
+    color: #fff;
+    text-decoration: none;
+}
+
+#categorytags li:hover{
+    background-color: #b10000;
+}
+
+
+/*搜索*/
+.regular-search{
+    height:63px;
+    width:100%;
+    background-color: #f3f3f3;
+}
+
+.r-search-main{
+    width:1200px;
+    margin:0 auto;
+    height:63px;
+   line-height: 63px;
+}
+
+.r-input{
+    width:402px;
+    display: block;
+    float: left;
+    margin-top: 12px;
+    height: 38px;
+    padding:10px;
+    border:1px solid #d9d9d9;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.r-btn{
+    width:89px;
+    height:38px;
+    color: #fff;
+    float: left;
+    margin-top: 12px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 38px;
+    font-weight: bold;
+    background-color: #cc0000;
+    text-decoration: none;
+
+}
+
+.r-links{
+    float: left;
+    margin-left: 20px;
+}
+
+.r-links img{
+    position: relative;
+    top:3px;
+    margin-right: 10px;
+}
+
+.r-links a{
+    color: #000;
+    margin-right: 15px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.r-links a:hover{
+    color: #cc0000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*便民电话*/
+
+.tel-around{
+    position: relative;
+    width:1200px;
+    margin:0 auto;
+}
+
+.nice-tel{
+    width:1200px;
+    height:37px;
+    background-image: url("../img/template/square.jpg");
+    margin:30px auto;
+    z-index:99;
+    line-height: 37px;
+}
+
+.telpic{
+    display: block;
+    position: absolute;
+    left:16px;
+    top:0;
+    margin-top: -9px;
+}
+
+.telback{
+    position: absolute;
+    z-index:-1;
+    width:166px;
+    height:55px;
+    background-color: #dedede;
+    top:0;
+    margin-top: -9px;
+    border-radius: 10px;
+    left:8px;
+}
+
+.nice-tel a{
+	    text-decoration: none;
+	line-height: 37px;
+    float: right;
+    margin-right: 23px;
+    color: #fff;
+}
+
+.nice-tel a:hover{
+    text-decoration: underline;
+}
+
+.nice-tel span{
+    margin-left: 190px;
+    color: #fff;
+    font-size: 16px;
+}
+
+
+
+
+#con-tel{
+    float: left;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #999;
+    margin-top: 10px;
+}
+
+.teltags{
+    width:1200px;
+    height:186px;
+    margin:30px auto;
+}
+
+.teltag{
+    width:120px;
+    height:50px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    padding-top: 6px;
+    font-size: 12px;
+    background-color: #fe5f4d;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.nomargin{
+    margin-right: 0;
+}
+
+.color1{
+    background-color: #fe5f4d !important;
+}
+
+.color2{
+    background-color: #fbb86d !important;
+}
+
+.color3{
+    background-color: #fadc4f !important;
+}
+
+.color4{
+    background-color: #8870cf !important;
+}
+
+.color5{
+    background-color: #d37ad1 !important;
+}
+
+.color6{
+    background-color: #19a0cc !important;
+}
+
+.color7{
+    background-color: #f6a479 !important;
+}
+
+/*友情链接*/
+.f-link-bg{
+    width:100%;
+    height:89px;
+    border-bottom: 3px solid #dcdcdc;
+    background-color: #f3f5ed;
+}
+
+.f-link{
+    width:1200px;
+    height:89px;
+    margin:0 auto;
+    position: relative;
+}
+
+.f-link-tag{
+    width:90px;
+    height:60px;
+    position: absolute;
+    left:0;
+    top:50%;
+    text-align: center;
+    line-height:60px;
+    margin-top: -30px;
+    background-color: #f4af00;
+}
+.f-link-tag>p{
+	 line-height:60px;
+}
+.f-link div p{
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.f-links{
+    height:40px;
+    width:1024px;
+    float: left;
+    position: absolute;
+    top:50%;
+    margin-top: -20px;
+    left:120px;
+}
+
+.f-links ul li{
+    float: left;
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    margin-right: 26px;
+    margin-bottom: 6px;
+}
+
+.f-links li a{
+    color: #333;
+    text-decoration: none;
+}
+
+.f-links li a:hover{
+    color: #cc0000;
+}
+
+/*底部内容*/
+
+footer{
+    width:100%;
+    height:156px;
+    background-color: #f5f5f5;
+}
+
+.footer-in{
+    width:1200px;
+    height:156px;
+    margin:0 auto;
+    position: relative;
+}
+
+.footer-lt{
+    height:156px;
+    width:736px;
+    float: left;
+    position: relative;
+}
+
+.footer-lt ul li{
+    float: left;
+    list-style-type: none;
+    margin-right: 26px;
+}
+
+.footer-lt li a{
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-lt li a:hover{
+    color: #cc0000;
+}
+
+.footer-lt ul{
+    margin-top: 30px;
+}
+
+.footer-tags{
+    margin-top: 30px;
+    position: absolute;
+    left:0;
+    bottom:26px;
+}
+
+.footer-tags a{
+    margin-right: 10px;
+}
+
+.footer-2d{
+    position: absolute;
+    right:0;
+    bottom:26px;
+}
+
+.dailtel{
+    width:200px;
+    height:116px;
+    position: absolute;
+    bottom:26px;
+    right:166px;
+    text-align: center;
+}
+
+.dailtel a{
+    display: block;
+    width:135px;
+    height:32px;
+    color: #fff;
+    text-align: center;
+    line-height: 32px;
+    position: absolute;
+    bottom:0;
+    left:50%;
+    margin-left: -67.5px;
+    background-color: #ff7012;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dailtel p:first-child{
+    font-size: 24px;
+    margin-bottom: 6px;
+}
