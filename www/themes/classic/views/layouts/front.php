@@ -1,4 +1,11 @@
 <?php $this->beginContent('//layouts/layout'); ?>
+<?php 
+$route = $_SERVER['QUERY_STRING'];
+if ($route == 'r=home/hot') {?>
+<div style="display: none">
+<?php } else {?>
+<div style = "display: block">
+<?php }?>
 <div style="background-color: #f7f7f7;" class="head">
     <div class="container">
         <div class="top1">
@@ -76,6 +83,7 @@
             <a href="px.html"><li class="li3">培训</li></a>
         </ul>
     </div>
+</div>
 </div>
 <!-- <div class="navbar navbar-default" role="navigation">
     <div class="container">

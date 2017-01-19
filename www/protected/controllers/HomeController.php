@@ -95,6 +95,7 @@ class HomeController extends FrontController
             $model->attributes = $_GET['Post'];
         }
 
+        $test_array = array("test"=>1,"test2"=>2);
         // if (isset($_GET['nodeId'])) {
         //     $model->attributes['nodeId'] = $_GET['nodeId'];
         // }
@@ -126,6 +127,7 @@ class HomeController extends FrontController
             "nodes" => $nodes,
             "site"  => $site,
             "model" => $model,
+            "test_array" => $test_array,
             //"result" => $result,
             "node_name" => $node_name,
             //"attributes" => $attributes,
