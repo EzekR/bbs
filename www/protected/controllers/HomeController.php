@@ -45,6 +45,7 @@ class HomeController extends FrontController
 
         if (isset($_GET['node'])) {
             $nodeId = $_GET['node'];
+            $node_name = Node::model()->findByPk($nodeId);
         }
 
         if (isset($_POST['Post'])) {
@@ -64,6 +65,7 @@ class HomeController extends FrontController
         $this->render("post", array(
             "model" => $model,
             "nodes" => $nodes,
+            "node_name" => $node_name,
         ));
     }
 

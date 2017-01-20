@@ -1,8 +1,8 @@
 <div class="nr">
     <div class="container">
         <div style="margin-bottom: 20px; margin-top: 20px">
-        <a href="index1.html"><span class="sps1">首页</span></a>>
-        <a href="jylt.html"><span class="sps1">教育论坛</span></a>>
+        <a href="<?php echo Yii::app()->createUrl("home/inde");?>"><span class="sps1">首页</span></a>>
+        <a href="<?php echo Yii::app()->createUrl("home/index", array("Post[nodeId]"=>$_GET['node'])); ?>"><span class="sps1"><?php echo $node_name->name;?></span></a>>
                 <a href="fty.html"><span class="sps2">
                     发帖页
                 </span></a>            
@@ -10,7 +10,7 @@
     </div>
     <div class="container">
         <div>
-            <span class="nr-sp">上海小学生涂色</span>
+            <span class="nr-sp"><?php echo $node_name->name; ?></span>
             <div class="nr-div">
                 <p>
                     <a href="">9</a>

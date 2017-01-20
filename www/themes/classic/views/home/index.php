@@ -214,8 +214,8 @@ $sort = $dataProvider->getSort();
     <div class="nr-bk1-2-1-1">
         <div>
             <img src="img/bi.jpg"/>
-        <?php if(isset($_GET['nodeId'])){?>
-            <span><a href="<?php echo $this->createUrl("home/post"); ?>&node=<?php echo $_GET['nodeId'];?>">发新帖</a></span>
+        <?php if(isset($_GET['Post'])){?>
+            <span><a href="<?php echo $this->createUrl("home/post"); ?>&node=<?php echo $_GET['Post']['nodeId'];?>">发新帖</a></span>
         <?php } else { ?>
             <span><a href="<?php echo $this->createUrl("home/post"); ?>">发新帖</a></span>
         <?php } ?>
