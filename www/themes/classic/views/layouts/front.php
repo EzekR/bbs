@@ -55,7 +55,7 @@ if ($route == 'r=home/hot' || $route == 'r=home/bbs') {?>
     <div class="container">
         <img src="img/top/top_07.jpg" />
         <div class="dss3"><span>7X24客服电话</span><br /><span>
-            400-400-400
+            400-029-1027
         </span></div>
         <div class="dss2">
             <img src="img/top/tel.png" />
