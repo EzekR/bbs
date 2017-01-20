@@ -124,7 +124,7 @@ class Post extends Model
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
             'sort' => array('defaultOrder' => $sort_order),
-            'pagination' => array('pageSize' => 20,)
+            'pagination' => array('pageSize' => 14,)
         ));
     }
 
@@ -140,7 +140,7 @@ class Post extends Model
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
             'sort' => array('defaultOrder' => 'sort desc, createTime desc'),
-            'pagination' => array('pageSize' => 20,)
+            'pagination' => array('pageSize' => 15)
         ));
     }
 

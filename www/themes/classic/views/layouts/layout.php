@@ -16,6 +16,7 @@ $version = "?20140114";
     <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/template.css" />
     <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/fty.css" />
     <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/jyltxqy.css" />
+    <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/paging.css" />
     <link rel="stylesheet" href="<?php echo $staticUrl; ?>/public/css/csjy.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $staticUrl; ?>/public/css/index.css" />
     <script type="text/javascript" src="<?php echo $staticUrl; ?>/public/js/jquery-3.1.1.min.js"></script>

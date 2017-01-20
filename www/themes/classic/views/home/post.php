@@ -1,6 +1,6 @@
 <div class="nr">
     <div class="container">
-        <div class="nr-top">
+        <div style="margin-bottom: 20px; margin-top: 20px">
         <a href="index1.html"><span class="sps1">首页</span></a>>
         <a href="jylt.html"><span class="sps1">教育论坛</span></a>>
                 <a href="fty.html"><span class="sps2">

@@ -9,19 +9,10 @@ $data = $dataProvider->getData();
 $page = $dataProvider->getPagination();
 $sort = $dataProvider->getSort();
 ?>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#test').click(function(){
-            $.get("http://localhost/birdbbs/www/index.php?r=home/index&Post[nodeId]=2", function(data,status){
-                $(document).find('html').html(data);
-            });
-        });
-    })
-</script>
 <?php if (!isset($_GET['Post'])) {?>
             <div>
                 <div class="container">
-                    <div class="index-content">
+                    <div class="nr-top">
                         <div class="nr-top-1">
                             <ul>
                                 <li class="nr-li1">分类：</li>
@@ -124,7 +115,7 @@ $sort = $dataProvider->getSort();
                                 </div>
                                 <div class="lb1-2">
                                     <p>
-                                        <a href="<?php echo $this->createUrl("home/view", array("id"=>$v->id));?>"><?php echo CHtml::encode($v->title); ?></a>
+                                        <a href="<?php echo $this->createUrl("home/index", array("Post[nodeId]"=>$v->nodeId));?>"><?php echo CHtml::encode($v->title); ?></a>
                                     </p>
                                     <p class="1b-p">
                                         <span><img class="img11" src="img/bm.png"/></span><span class="span1"><?php echo CHtml::encode($v->user->username); ?></span>
@@ -135,7 +126,9 @@ $sort = $dataProvider->getSort();
                             </div>
                         <?php }?>
                     <?php }?>
-
+                    <div class="link-pager" style="text-align: center">
+                    <?php $this->widget('CLinkPager', Util::page($page)); ?>
+                    </div>
                         </div>
                         <div style="clear: both;"></div>
                         <!---->
@@ -145,7 +138,7 @@ $sort = $dataProvider->getSort();
 <?php } else {?>
 <div class="nr">
 <div class="container">
-    <div class="nr-top">
+    <div style="margin-top: 20px; margin-bottom: 20px">
     <a href="<?php echo $this->createUrl("home/index"); ?>"><span class="sps1">首页</span></a>
     <?php if ($node_name) {?>
         <a href="<?php echo $this->createUrl("home/index", array("Post[nodeId]"=>$node_name->id)) ?>">>
@@ -172,7 +165,7 @@ $sort = $dataProvider->getSort();
     <div class="nr-div3">交流各地教育，加强学生学习</div>
 </div>
 <div class="container">
-<div class="nr-bk1">
+<div class="content-left">
 <div class="nr-bk1-1">
     <ul>
         <li><a href="">最新</a></li>
@@ -183,14 +176,13 @@ $sort = $dataProvider->getSort();
         <div style="vertical-align: middle; margin-left: 10px; width: 1px; height: 15px; border-left: 1px solid gray; display: inline-block;"></div>
     
     </ul>
-    <div class="nr-bk1-1-1">最后发表</div>
 </div>
 <?php if ($data): ?>
 <?php foreach ($data as $v): ?>
 <div class="nr-bk1-2" onmouseover="addClass(this)" onmouseout="removeClass(this)">
     <div>
         <div class="nr-bk1-2-1">
-            <img class="img1" src="img/20161121152347.png" />
+            <img class="img1" src="avatar_img/<?php echo $v->user->avatar; ?>" style="width: 56px;"/>
             <span class="span1"><a href="<?php echo $this->createUrl("home/view", array("id" => $v->id)); ?>"><?php echo CHtml::encode($v->title); ?></a></span>
             <img class="img1"  src="img/20161121153212.png" />
         </div>
@@ -214,7 +206,9 @@ $sort = $dataProvider->getSort();
     </div>
     <?php $this->widget('CLinkPager', Util::page($page)); ?>
 <?php endif;?>
-
+<div class="link-page">
+<?php $this->widget('CLinkPager', Util::page($page)); ?>
+</div>
 </div>
 <div class="nr-bk2">
     <div class="nr-bk1-2-1-1">

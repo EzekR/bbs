@@ -156,13 +156,13 @@ class CLinkPager extends CBasePager
 		
 		// first page
 		if ($this->firstPageLabel !== false) {
-			$buttons[]=$this->createPageButton($this->firstPageLabel,0,$this->firstPageCssClass,$currentPage<=0,false);
+			$buttons[]=$this->createPageButton('首页',0,$this->firstPageCssClass,$currentPage<=0,false);
 		}
 		// prev page
 		if ($this->prevPageLabel !== false) {
 			if(($page=$currentPage-1)<0)
 				$page=0;
-			$buttons[]=$this->createPageButton($this->prevPageLabel,$page,$this->previousPageCssClass,$currentPage<=0,false);
+			$buttons[]=$this->createPageButton('上一页',$page,$this->previousPageCssClass,$currentPage<=0,false);
 		}
 
 		// internal pages
@@ -173,11 +173,11 @@ class CLinkPager extends CBasePager
 		if ($this->nextPageLabel !== false) {
 			if(($page=$currentPage+1)>=$pageCount-1)
 				$page=$pageCount-1;
-			$buttons[]=$this->createPageButton($this->nextPageLabel,$page,$this->nextPageCssClass,$currentPage>=$pageCount-1,false);
+			$buttons[]=$this->createPageButton('下一页',$page,$this->nextPageCssClass,$currentPage>=$pageCount-1,false);
 		}
 		// last page
 		if ($this->lastPageLabel !== false) {
-			$buttons[]=$this->createPageButton($this->lastPageLabel,$pageCount-1,$this->lastPageCssClass,$currentPage>=$pageCount-1,false);
+			$buttons[]=$this->createPageButton('末页',$pageCount-1,$this->lastPageCssClass,$currentPage>=$pageCount-1,false);
 		}
 
 		return $buttons;

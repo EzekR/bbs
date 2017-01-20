@@ -25,7 +25,12 @@ $p->options = array('URI.AllowedSchemes'=>array(
         </div>
         <?php $this->endWidget(); ?>
         <?php else: ?>
-            <div>请先<a href="<?php $this->createUrl("home/login"); ?>">登录</a>></div>>
+        <div class="login-reply">
+        <span style="font-size: 13px;">您需要登陆后才可以回帖</span>
+        <a href="<?php echo Yii::app()->createUrl("home/login");?>">登陆</a>
+        <div class="zx3 "></div>
+        <a href=" ">回帖</a>
+        </div>
         <?php endif;?>
     </div>
 </div>
@@ -85,7 +90,7 @@ $p->options = array('URI.AllowedSchemes'=>array(
         </div>
         <div class="tznr">
             <div class="tznr-1">
-                <div><img src="img/tx1.png" />
+                <div><img src="avatar_img/<?php echo $model->user->avatar; ?>" />
                     <p class="czname">
                         <a href=""><?php echo CHtml::encode($model->user->username); ?></a>
                     </p>
@@ -129,7 +134,7 @@ $p->options = array('URI.AllowedSchemes'=>array(
             <?php foreach ($model->comments as $k => $v): ?>
                 <div class="tznr1">
                     <div class="tznr-3">
-                        <div><img src="img/tx2.png" />
+                        <div><img src="avatar_img/<?php echo $v->user->avatar; ?>" />
                             <p class="czname cz">
                                 <a href=""><?php echo CHtml::encode($v->user->username); ?></a>
                             </p>
@@ -161,25 +166,6 @@ $p->options = array('URI.AllowedSchemes'=>array(
                 </div>
             <?php endforeach;?>
         <?php endif;?>
-        <?php if (!Yii::app()->user->isGuest): ?>
-        <?php $form = $this->beginWidget('CActiveForm', array(
-            'id' => 'comment-form',
-        )); ?>
-        <?php echo $form->hiddenField($comment, 'postId', array('value' => $model->id)); ?>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <span class="light">回复</span>
-            </div>
-            <div class="panel-body">
-                <?php echo $form->textArea($comment, 'content', array('class'=>'form-control', 'style'=>'height:100px;resize:none;')); ?>
-                <?php echo $form->error($comment, 'content', array('class'=>'help-block')); ?>
-            </div>
-            <div class="panel-footer">
-                <input type="submit" class="btn btn-primary" value="回复">
-            </div>
-        </div>
-        <?php $this->endWidget(); ?>
-        <?php endif; ?>
 </div>
 <div class="nr-bk2">
     <div class="nr-bk1-2-1-2">
