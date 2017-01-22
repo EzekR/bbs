@@ -82,7 +82,7 @@ $p->options = array('URI.AllowedSchemes'=>array(
         </div>
         <div class="pugnub">
             <div class="nr-bk1-2-1-1">
-                <div>
+                <div id="cli">
                     <img src="img/hftb.png" />
                     <span class="cli">回复</span>
                 </div>
@@ -534,7 +534,7 @@ $.ajax(<?php echo json_encode($this->createUrl("ajax/postView", array("id"=>$mod
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
-    $('.cli').click(function() {
+    $('#cli').click(function() {
         $('.huifu').css('display','block'),
         $('.ke-container').removeAttr("style")
     })

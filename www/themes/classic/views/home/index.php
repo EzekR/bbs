@@ -8,6 +8,12 @@ $dataProvider = $model->search($sort_order);
 $data = $dataProvider->getData();
 $page = $dataProvider->getPagination();
 $sort = $dataProvider->getSort();
+$page_count = floor($page->itemCount/$page->pageSize) + 1;
+if (isset($_GET['Post_page'])) {
+    $current_page = $_GET['Post_page'];
+} else {
+    $current_page = 1;
+}
 ?>
 <?php if (!isset($_GET['Post'])) {?>
             <div>
@@ -17,7 +23,7 @@ $sort = $dataProvider->getSort();
                             <ul>
                                 <li class="nr-li1">分类：</li>
                                 <li class="nr-li2">
-                                    <a href="#" id="all">全部</a>
+                                    <a href="#" id="all" class="bgc">全部</a>
                                 </li>
                                 <li class="nr-li3">
                                     <a href="#" id="kg">幼儿园</a>
@@ -37,7 +43,7 @@ $sort = $dataProvider->getSort();
                             <ul>
                                 <li class="nr-li1">地区：</li>
                                 <li class="nr-li2">
-                                    <a href="#">全部</a>
+                                    <a href="#" class="bgc">全部</a>
                                 </li>
                                 <li class="nr-li3">
                                     <a href="#">黄浦区</a>
@@ -87,23 +93,35 @@ $sort = $dataProvider->getSort();
                     <div class="nr-bottom">
                         <div class="div1">
                             <ul style="display: inline-block;">
-                                <a href="#">
-                                    <li class="nr-bottom-li1" style="color: #ff6601;">全部 <img  style="margin-top: -2px; vertical-align: middle;" src="img/rjt.png" /></li>
+                                <a href="<?php echo Yii::app()->createUrl("home/index");?>">
+                                    <li class="" id="quanbu">全部 <img  style="margin-top: -2px; vertical-align: middle;" src="img/bjt.png" /></li>
                                 </a>
                                 <a href="<?php echo Yii::app()->createUrl("home/index", array("sort_order"=>"createTime desc"));?>">
-                                    <li class="nr-bottom-li2">最新 <img style="margin-top: -2px; vertical-align: middle;" src="img/bjt.png" /></li>
+                                    <li class="" id="new">最新 <img style="margin-top: -2px; vertical-align: middle;" src="img/bjt.png" /></li>
                                 </a>
                                 <a href="<?php echo Yii::app()->createUrl("home/index", array("sort_order"=>"hits desc"));?>">
-                                    <li class="nr-bottom-li2">热门 <img style="margin-top: -2px; vertical-align: middle;" src="img/bjt.png" /></li>
+                                    <li class="" id="hot">热门 <img style="margin-top: -2px; vertical-align: middle;" src="img/bjt.png" /></li>
                                 </a>
                                 <a href="<?php echo Yii::app()->createUrl("home/index", array("sort_order"=>"sort desc"));?>">
-                                    <li class="nr-bottom-li2">精华 <img style="margin-top: -2px; vertical-align: middle;" src="img/bjt.png" /></li>
+                                    <li class="" id="deluxe">精华 <img style="margin-top: -2px; vertical-align: middle;" src="img/bjt.png" /></li>
                                 </a>
                             </ul>
                             <span style="position: absolute; right: 10px; top: 5px;">
-                            <span style="vertical-align: middle;" id="test11">1/2</span>
-                            <img style="cursor: pointer; vertical-align:middle;" src="img/zjt.jpg" />
-                            <img style="cursor: pointer; vertical-align: middle;" src="img/yjt.jpg" />
+                            <span style="vertical-align: middle;" id="test11"><?php echo $current_page; ?>/<?php echo $page_count; ?></span>
+                            <?php if ($current_page == 1) {?>
+                            <img id="backward" style="cursor: pointer; vertical-align:middle;" src="img/zjt.jpg" />
+                            <?php } else {?>
+                            <a href="<?php echo Yii::app()->createUrl("home/index", array("Post_page"=>$current_page-1)); ?>">
+                            <img id="backward" style="cursor: pointer; vertical-align:middle;" src="img/zjt.jpg" />
+                            </a>
+                            <?php }?>
+                            <?php if ($current_page == $page_count) {?>
+                            <img id="forward" style="cursor: pointer; vertical-align: middle;" src="img/yjt.jpg" />
+                            <?php } else {?>
+                            <a href="<?php echo Yii::app()->createUrl("home/index", array("Post_page"=>$current_page+1));?>">
+                            <img id="forward" style="cursor: pointer; vertical-align: middle;" src="img/yjt.jpg" />
+                            </a>
+                            <?php } ?>
                             </span>
                         </div>
                         <div class="lb">
@@ -115,7 +133,13 @@ $sort = $dataProvider->getSort();
                                 </div>
                                 <div class="lb1-2">
                                     <p>
-                                        <a href="<?php echo $this->createUrl("home/index", array("Post[nodeId]"=>$v->nodeId));?>"><?php echo CHtml::encode($v->title); ?></a>
+                                        <a href="<?php echo $this->createUrl("home/index", array("Post[nodeId]"=>$v->nodeId));?>">
+                                        <?php if (strlen($v->title) >= 60) {?>
+                                        <?php echo CHtml::encode(substr($v->title, 0, 60)); ?>...
+                                        <?php } else {?>
+                                        <?php echo CHtml::encode($v->title);?>
+                                        <?php }?>    
+                                        </a>
                                     </p>
                                     <p class="1b-p">
                                         <span><img class="img11" src="img/bm.png"/></span><span class="span1"><?php echo CHtml::encode($v->user->username); ?></span>
@@ -126,10 +150,10 @@ $sort = $dataProvider->getSort();
                             </div>
                         <?php }?>
                     <?php }?>
+                        </div>
                     <div class="link-pager" style="text-align: center">
                     <?php $this->widget('CLinkPager', Util::page($page)); ?>
                     </div>
-                        </div>
                         <div style="clear: both;"></div>
                         <!---->
                     </div>
@@ -183,7 +207,13 @@ $sort = $dataProvider->getSort();
     <div>
         <div class="nr-bk1-2-1">
             <img class="img1" src="avatar_img/<?php echo $v->user->avatar; ?>" style="width: 56px;"/>
-            <span class="span1"><a href="<?php echo $this->createUrl("home/view", array("id" => $v->id)); ?>"><?php echo CHtml::encode($v->title); ?></a></span>
+            <span class="span1"><a href="<?php echo $this->createUrl("home/view", array("id" => $v->id)); ?>">                                        
+            <?php if (strlen($v->title) >= 60) {?>
+            <?php echo CHtml::encode(substr($v->title, 0, 60)); ?>...
+            <?php } else {?>
+            <?php echo CHtml::encode($v->title);?>
+            <?php }?> 
+            </a></span>
             <img class="img1"  src="img/20161121153212.png" />
         </div>
         <div class="nr-bk1-2-2">
@@ -412,4 +442,34 @@ $sort = $dataProvider->getSort();
             console.log(array);
         });
 </script>
+<script type="text/javascript">
+$(document).ready(function(){
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+    var page =  getUrlParam('sort_order');
+    console.log(page === null);
+    if (page === null) {
+        $('#quanbu').addClass("nr-bottom-li1");
+        $('#quanbu').css("color","#ff7012");
+    } else {
+        switch (page) {
+            case 'createTime+desc':
+            $('#new').addClass("nr-bottom-li1");
+            $('#new').css("color","#ff7012");
+            break;
+            case 'hits+desc':
+            $('#hot').addClass("nr-bottom-li1");
+            $('#hot').css("color","#ff7012");
+            break;
+            case 'sort+desc':
+            $('#deluxe').addClass("nr-bottom-li1");
+            $('#deluxe').css("color","#ff7012");
+            break;
+        }
+    }
 
+})
+</script>
