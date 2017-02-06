@@ -203,22 +203,22 @@ if (isset($_GET['Post_page'])) {
 </div>
 <?php if ($data): ?>
 <?php foreach ($data as $v): ?>
-<div class="nr-bk1-2" onmouseover="addClass(this)" onmouseout="removeClass(this)">
+<div class="nr-bk1-3" onmouseover="addClass(this)" onmouseout="removeClass(this)">
     <div>
-        <div class="nr-bk1-2-1">
+        <div class="nr-row-left">
             <img class="img1" src="avatar_img/<?php echo $v->user->avatar; ?>" style="width: 56px;"/>
             <span class="span1"><a href="<?php echo $this->createUrl("home/view", array("id" => $v->id)); ?>">                                        
-            <?php if (strlen($v->title) >= 60) {?>
-            <?php echo CHtml::encode(substr($v->title, 0, 60)); ?>...
+            <?php if (strlen($v->title) >= 50) {?>
+            <?php echo substr($v->title, 0, 45); ?>...
             <?php } else {?>
             <?php echo CHtml::encode($v->title);?>
             <?php }?> 
             </a></span>
             <img class="img1"  src="img/20161121153212.png" />
         </div>
-        <div class="nr-bk1-2-2">
+        <div class="nr-row-right">
             <ul style=" display: inline-block;">
-                <li style="position: relative;"><a href=""><?php echo CHtml::encode($v->user->username); ?></a><img style="position: absolute; top:0; left: -18px;" class="img2" src="img/bm.png" /></li>
+                <li style="position: relative;"><a href=""><?php echo CHtml::encode($v->user->username); ?></a><img style="position: absolute; top:0; left: -18px;" class="img2" id="img-min" src="img/bm.png" /></li>
                 <div style="vertical-align: middle; margin-left: 5px;margin-right: 5px; width: 1px; height: 15px; border-left: 1px solid gray; display: inline-block;"></div>
                 <li><a href="">回复：<?php echo$v->reply; ?></a></li>
                 <div style="vertical-align: middle; margin-left: 5px;margin-right: 5px; width: 1px; height: 15px; border-left: 1px solid gray; display: inline-block;"></div>
@@ -409,11 +409,11 @@ if (isset($_GET['Post_page'])) {
 <?php $this->widget("SideOutlinkWidget"); ?>
 <script type="text/javascript">
     function addClass(x){
-        x.className = "nr-bk1-2 row-shadow";
+        x.className = "nr-bk1-3 bs";
     }
 
     function removeClass(x){
-        x.className = "nr-bk1-2";
+        x.className = "nr-bk1-3";
     }
 </script>
 <script type="text/javascript">
@@ -445,28 +445,32 @@ if (isset($_GET['Post_page'])) {
 <script type="text/javascript">
 $(document).ready(function(){
     function getUrlParam(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-        if (r != null) return unescape(r[2]); return null; //返回参数值
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); 
+        var r = window.location.search.substr(1).match(reg);  
+        if (r != null) return unescape(r[2]); return null; 
     }
     var page =  getUrlParam('sort_order');
     console.log(page === null);
     if (page === null) {
         $('#quanbu').addClass("nr-bottom-li1");
         $('#quanbu').css("color","#ff7012");
+        $('#quanbu>img').attr('src', 'img/rjt.png');
     } else {
         switch (page) {
             case 'createTime+desc':
             $('#new').addClass("nr-bottom-li1");
             $('#new').css("color","#ff7012");
+            $('#new>img').attr('src', 'img/rjt.png');
             break;
             case 'hits+desc':
             $('#hot').addClass("nr-bottom-li1");
             $('#hot').css("color","#ff7012");
+            $('#hot>img').attr('src', 'img/rjt.png');
             break;
             case 'sort+desc':
             $('#deluxe').addClass("nr-bottom-li1");
             $('#deluxe').css("color","#ff7012");
+            $('#deluxe>img').attr('src', 'img/rjt.png');
             break;
         }
     }

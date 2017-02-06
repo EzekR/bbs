@@ -30,7 +30,7 @@
     <div class="container">
         <div class="nr-div3">交流各地教育，加强学生学习</div>
     </div>
-    <div class="container">
+    <div class="container" style="height: 800px">
         <div class="form-frame">
             <?php if ($model->hasErrors()): ?>
             <div class="alert alert-warning">
@@ -54,7 +54,7 @@
                 <?php } else {?>
                 <input type="hidden" name="Post[nodeId]" value="1">
             <?php }?>
-            <div>
+            <div style="margin-bottom: 15px; margin-top: 15px">
                     <?php echo $form->textField($model, "title", array("class"=>'form-title', "placeholder"=>"标题严禁使用【】等异形符号，违者删帖")); ?>
             </div>
             <div class="wenben">
@@ -103,6 +103,130 @@
         </div>
     </div>
     </div>
+</div>
+<div class="tel-around">
+    <div class="telback"></div>
+
+    <div class="nice-tel">
+        <a href="#no"><img src="img/template/nicetel.jpg" alt="tel" class="telpic"></a>
+        <span>欢迎加入30元/月，加亮50元/月</span>
+        <a href="#no">查看更多 +</a>
+    </div>
+</div>
+
+<div class="teltags">
+    <div class="teltag color1">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color2">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color3">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color4">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color5">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color6">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color7">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color5">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color1 nomargin">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+
+    <div class="teltag color6">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color5">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color7">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color1">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color6">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color3">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color2">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color1">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color6 nomargin">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+
+    <div class="teltag color4">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color1">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color5">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color2">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color5">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color6">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color1">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color4">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color2 nomargin">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+</div>
+<?php $this->widget("SideOutlinkWidget"); ?>
 <script type="text/javascript">
 var REQ_CSRF_TOKEN = <?php echo json_encode(array(
     Yii::app()->request->csrfTokenName => Yii::app()->request->csrfToken,

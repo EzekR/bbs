@@ -967,7 +967,11 @@ color: #428bca !important;
 }
 .ggz>a{
 	text-decoration: none;
-	color: darkgray;
+	color: #666666;
+}
+.ggz>a:hover{
+	text-decoration: none;
+	color: #f76626;
 }
 .ggy{
 	position: relative;
@@ -976,8 +980,14 @@ color: #428bca !important;
 }
 .ggy>a{
 	text-decoration: none;
-	color: darkgray;
+	color: #666666;
 }
+
+.ggy>a:hover{
+	text-decoration: none;
+	color: #f76626;
+}
+
 .huifu{
 	z-index: 9999;
 	width: 100%;

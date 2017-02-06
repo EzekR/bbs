@@ -160,7 +160,7 @@ $p->options = array('URI.AllowedSchemes'=>array(
                         <div class="hfnr"><?php echo $p->purify($v->content); ?></div>
                         <div>
                             <hr />
-                            <div><img style="vertical-align: middle;" src="img/hfb.png"/><a style="vertical-align: middle;" href="">回复</a></div>
+                            <div id="cli1"><img style="vertical-align: middle;" src="img/hfb.png"/><a style="vertical-align: middle;">回复</a></div>
                         </div>
                     </div>
                 </div>
@@ -538,8 +538,19 @@ $.ajax(<?php echo json_encode($this->createUrl("ajax/postView", array("id"=>$mod
         $('.huifu').css('display','block'),
         $('.ke-container').removeAttr("style")
     })
+    $('.gentie>div>div').click(function(){
+        $('.huifu').css('display', 'block'),
+        $('.ke-container').removeAttr("style")
+    })
     $('.gb').click(function() {
         $('.huifu').css('display','none')
     })
+    function reply(){
+        $('.huifu').css('display', 'block'),
+        $('.ke-container').removeAttr("style")
+    }
 })
+        
+
+    
 </script>
