@@ -552,3 +552,12 @@ color: #428bca !important;
     width: 920px;
     height: 600px;
 }
+
+.bgc1 {
+	color: white !important;
+    background-color: #ff7012 !important;
+}
+
+.span1>a:hover {
+	color: #ff6600;
+}

@@ -284,129 +284,6 @@ if (isset($_GET['Post_page'])) {
 </div>
 </div>
 <?php }?>
-<div class="tel-around">
-    <div class="telback"></div>
-
-    <div class="nice-tel">
-        <a href="#no"><img src="img/template/nicetel.jpg" alt="tel" class="telpic"></a>
-        <span>欢迎加入30元/月，加亮50元/月</span>
-        <a href="#no">查看更多 +</a>
-    </div>
-</div>
-
-<div class="teltags">
-    <div class="teltag color1">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color2">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color3">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color4">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color5">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color6">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color7">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color5">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color1 nomargin">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-
-    <div class="teltag color6">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color5">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color7">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color1">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color6">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color3">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color2">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color1">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color6 nomargin">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-
-    <div class="teltag color4">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color1">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color5">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color2">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color5">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color6">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color1">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color4">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-    <div class="teltag color2 nomargin">
-        <p>虚位以待</p>
-        <p>021-51083516</p>
-    </div>
-</div>
-<?php $this->widget("SideOutlinkWidget"); ?>
 <script type="text/javascript">
     function addClass(x){
         x.className = "nr-bk1-3 bs";
@@ -474,6 +351,11 @@ $(document).ready(function(){
             break;
         }
     }
-
+    $('#backward').mouseenter(function(){
+        $(this).attr('src', 'img/rla.png')
+    })
+    $('#backward').mouseleave(function(){
+        $(this).attr('src', 'img/zjt.jpg')
+    })
 })
 </script>

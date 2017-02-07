@@ -18,7 +18,13 @@
 		<?php if ($post) foreach ($post as $k=>$v): ?>
 		<div class="kz">
 			<div class="nub1"><?php echo $k+1; ?></div>
-			<span><a href="<?php echo Yii::app()->createUrl("home/view", array("id"=>$v->id))?>"><?php echo CHtml::encode($v->title); ?></a></span>
+			<span><a href="<?php echo Yii::app()->createUrl("home/view", array("id"=>$v->id))?>">
+			<?php if (strlen($v->title) >= 10) {?>
+			<?php echo substr($v->title, 0, 10); ?>..
+			<?php } else {?>
+			<?php echo $v->title;?>
+			<?php }?>
+			</a></span>
 			<span><a href="<?php echo Yii::app()->createUrl("home/view", array("id"=>$v->id))?>"><?php echo $v->hits; ?></a></span>
 		</div>
 	<?php endforeach; ?>

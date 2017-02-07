@@ -458,32 +458,31 @@ html, body, div, form, ul, ol, li, span, p, dl, dt, dd, img,a {
 
 /*友情链接*/
 .f-link-bg{
-    width:100%;
+    width:1200px;
     height:89px;
-    border-bottom: 3px solid #dcdcdc;
-    background-color: #f3f5ed;
+    margin: 0 auto;
+    height: 76px;
+    background-color: #f7f7f7;
+    margin-bottom: 30px;
+        border: 1px solid #DDDDDD;
 }
 
 .f-link{
     width:1200px;
-    height:89px;
+    height:76px;
     margin:0 auto;
     position: relative;
 }
 
 .f-link-tag{
     width:90px;
-    height:60px;
-    position: absolute;
-    left:0;
-    top:50%;
+    height:75px;
     text-align: center;
-    line-height:60px;
-    margin-top: -30px;
+    line-height:75px;
     background-color: #f4af00;
 }
 .f-link-tag>p{
-	 line-height:60px;
+	 line-height:75px;
 }
 .f-link div p{
     color: #fff;
@@ -529,8 +528,8 @@ footer{
 }
 
 .footer-in{
-    width:1200px;
-    height:156px;
+    width:1200px !important;
+    height:156px !important;
     margin:0 auto;
     position: relative;
 }
@@ -545,7 +544,7 @@ footer{
 .footer-lt ul li{
     float: left;
     list-style-type: none;
-    margin-right: 26px;
+    margin-right: 20px;
 }
 
 .footer-lt li a{
@@ -607,12 +606,4 @@ footer{
 .dailtel p:first-child{
     font-size: 24px;
     margin-bottom: 6px;
-}
-
-.row-shadow {
-    width: 885px;
-    height: 96px;
-    margin: auto;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px 5px #ffd3b6;
 }

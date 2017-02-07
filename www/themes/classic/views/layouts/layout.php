@@ -44,9 +44,132 @@ $version = "?20140114";
 <div class="min">
 <?php echo $content; ?>
 <?php $route = $_SERVER['QUERY_STRING'];
-    if ($route == 'r=home/hot' || $route == 'r=home/bbs') 
+    if ($route == 'r=home/hot' || $route == 'r=home/bbs' || $route == 'r=home/login') 
  { ?><div style="display: none;"></div>
 <?php } else {?>
+<div class="tel-around">
+    <div class="telback"></div>
+
+    <div class="nice-tel">
+        <a href="#no"><img src="img/template/nicetel.jpg" alt="tel" class="telpic"></a>
+        <span>欢迎加入30元/月，加亮50元/月</span>
+        <a href="#no">查看更多 +</a>
+    </div>
+</div>
+
+<div class="teltags">
+    <div class="teltag color1">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color2">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color3">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color4">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color5">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color6">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color7">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color5">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color1 nomargin">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+
+    <div class="teltag color6">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color5">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color7">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color1">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color6">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color3">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color2">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color1">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color6 nomargin">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+
+    <div class="teltag color4">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color1">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color5">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color2">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color5">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color6">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color1">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color4">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+    <div class="teltag color2 nomargin">
+        <p>虚位以待</p>
+        <p>021-51083516</p>
+    </div>
+</div>
+<?php $this->widget("SideOutlinkWidget");?>
 <footer>
     <div class="footer-in clearfix">
         <div class="footer-lt">
@@ -55,22 +178,31 @@ $version = "?20140114";
                     <a href="#no">首页</a>
                 </li>
                 <li>
-                    <a href="#no">隐私保护</a>
+                    <a href="#no">特产优聚</a>
                 </li>
                 <li>
-                    <a href="#no">联系我们</a>
+                    <a href="#no">城市教育</a>
                 </li>
                 <li>
-                    <a href="#no">免责条款</a>
+                    <a href="#no">社区生活</a>
                 </li>
                 <li>
-                    <a href="#no">公司简介</a>
+                    <a href="#no">房产集锦</a>
                 </li>
                 <li>
-                    <a href="#no">商家驻入</a>
+                    <a href="#no">信息分类</a>
                 </li>
                 <li>
-                    <a href="#no">意见反馈</a>
+                    <a href="#no">新闻资讯</a>
+                </li>
+                <li>
+                    <a href="#no">特色餐饮</a>
+                </li>
+                <li>
+                    <a href="#no">旅游天地</a>
+                </li>
+                <li>
+                    <a href="#no">招商加盟</a>
                 </li>
             </ul>
 
@@ -89,7 +221,7 @@ $version = "?20140114";
         </div>
 
         <div class="dailtel">
-            <p>400-029-1027</p>
+            <p>400-129-1027</p>
             <p>周一至周日：9:00 - 17:00</p>
             <p>（仅收市话费）</p>
             <a href="#no">24小时在线客服</a>

@@ -66,10 +66,10 @@ $(document).ready(function() {
 		$(this).find('.img22').attr('src','img/bt.png')
 	})
 	$('.nr-li3>a').mouseenter(function(){
-		$(this).addClass('bgc');
+		$(this).addClass('bgc1');
 	})
 	$('.nr-li3>a').mouseleave(function(){
-		$(this).removeClass('bgc');
+		$(this).removeClass('bgc1');
 	})
 	$('.nr-bk1-3').mouseenter(function(){
 		$(this).find('#img-min').attr('src', 'img/srm.png');
